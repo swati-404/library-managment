@@ -9,5 +9,5 @@ class Book(models.Model):
     describe = models.TextField()
 
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name

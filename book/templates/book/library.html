@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'book/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<br>
+<div class="card" style="width: 18rem;">
+  {% for b in books %}
+  <img class="card-img-top" src="{{ b.picture.url }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ b.name }}</h5>
+    <p class="card-text">{{ b.describe }}</p>
+  </div>
+
+  <div class="card-body">
+    <a href="update/{{b.id}}" class="card-link">Edit</a>
+    <a href="delete/{{b.id}}" class="card-link">Delete</a>
+  </div>
+</div>
+ {% endfor %}
+{% endblock %}

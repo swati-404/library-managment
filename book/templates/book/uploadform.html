@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'book/base.html' %}
+    {% block content %}
 
-</body>
-</html>
+        <center>
+        <h6 class="display-2" style="background-color:#000000;color:#FFFF99;">Upload Books</h6>
+        <form method = 'POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class = 'w-30 table table-light' style="border-radius:8px;background-color:#FFFF99;">
+                {% for field in uploadform %}
+                <tr>
+                    <th>{{field.label}}</th>
+                    <td>{{ field }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+        </form>
+    </center>
+    {% endblock %}
